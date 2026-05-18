@@ -1,0 +1,508 @@
+# Página Web Profesional — Tinto Sabor Argentino
+
+```html
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tinto | Sabor Argentino</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background-color: #f3ede3;
+      color: #1f2a1f;
+      overflow-x: hidden;
+    }
+
+    :root {
+      --verde: #31452f;
+      --beige: #f3ede3;
+      --crema: #faf7f2;
+      --oscuro: #1f2a1f;
+      --dorado: #b89b72;
+    }
+
+    header {
+      width: 100%;
+      position: fixed;
+      top: 0;
+      z-index: 1000;
+      background: rgba(243, 237, 227, 0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(0,0,0,0.08);
+    }
+
+    .navbar {
+      width: 90%;
+      max-width: 1300px;
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px 0;
+    }
+
+    .logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: var(--verde);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 30px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--oscuro);
+      font-size: 0.95rem;
+      transition: 0.3s ease;
+      font-weight: 500;
+    }
+
+    .nav-links a:hover {
+      color: var(--dorado);
+    }
+
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 120px 20px 80px;
+      background:
+      linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)),
+      url('https://images.unsplash.com/photo-1544025162-d76694265947?q=80&w=1974&auto=format&fit=crop');
+      background-size: cover;
+      background-position: center;
+      color: white;
+    }
+
+    .hero-content {
+      max-width: 850px;
+    }
+
+    .hero h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 6rem;
+      margin-bottom: 10px;
+      letter-spacing: 2px;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      line-height: 1.8;
+      margin-bottom: 40px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 15px 35px;
+      background-color: var(--verde);
+      color: white;
+      text-decoration: none;
+      border-radius: 50px;
+      transition: 0.3s ease;
+      font-weight: 600;
+    }
+
+    .btn:hover {
+      background-color: var(--dorado);
+      transform: translateY(-3px);
+    }
+
+    section {
+      padding: 100px 8%;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+
+    .section-title h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 3.5rem;
+      color: var(--verde);
+      margin-bottom: 15px;
+    }
+
+    .section-title p {
+      color: #666;
+      max-width: 700px;
+      margin: auto;
+      line-height: 1.8;
+    }
+
+    .about {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 50px;
+      align-items: center;
+    }
+
+    .about img {
+      width: 100%;
+      border-radius: 25px;
+      object-fit: cover;
+      box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+    }
+
+    .about-text h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 3rem;
+      margin-bottom: 25px;
+      color: var(--verde);
+    }
+
+    .about-text p {
+      line-height: 2;
+      color: #444;
+      margin-bottom: 20px;
+    }
+
+    .menu-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+    }
+
+    .menu-card {
+      background-color: white;
+      border-radius: 22px;
+      padding: 30px;
+      transition: 0.3s ease;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+      border: 1px solid rgba(0,0,0,0.05);
+    }
+
+    .menu-card:hover {
+      transform: translateY(-8px);
+    }
+
+    .menu-card h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2rem;
+      margin-bottom: 15px;
+      color: var(--verde);
+    }
+
+    .menu-card p {
+      color: #555;
+      line-height: 1.8;
+      font-size: 0.95rem;
+    }
+
+    .contact {
+      background-color: var(--verde);
+      color: white;
+      border-radius: 35px;
+      text-align: center;
+    }
+
+    .contact h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 4rem;
+      margin-bottom: 25px;
+    }
+
+    .contact p {
+      margin-bottom: 20px;
+      line-height: 1.8;
+    }
+
+    .socials {
+      margin-top: 35px;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .socials a {
+      text-decoration: none;
+      background-color: white;
+      color: var(--verde);
+      padding: 14px 24px;
+      border-radius: 50px;
+      font-weight: 600;
+      transition: 0.3s ease;
+    }
+
+    .socials a:hover {
+      background-color: var(--dorado);
+      color: white;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px;
+      color: #666;
+      font-size: 0.9rem;
+    }
+
+    .whatsapp-float {
+      position: fixed;
+      width: 65px;
+      height: 65px;
+      bottom: 25px;
+      right: 25px;
+      background-color: #25D366;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-decoration: none;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+      z-index: 999;
+      transition: 0.3s ease;
+    }
+
+    .whatsapp-float:hover {
+      transform: scale(1.1);
+    }
+
+    .whatsapp-float img {
+      width: 35px;
+    }
+
+    @media(max-width: 900px) {
+
+      .hero h1 {
+        font-size: 4rem;
+      }
+
+      .nav-links {
+        gap: 15px;
+      }
+
+      .nav-links a {
+        font-size: 0.8rem;
+      }
+
+      .section-title h2,
+      .contact h2,
+      .about-text h3 {
+        font-size: 2.5rem;
+      }
+
+    }
+
+    @media(max-width: 650px) {
+
+      .navbar {
+        flex-direction: column;
+        gap: 15px;
+      }
+
+      .hero h1 {
+        font-size: 3rem;
+      }
+
+      .hero p {
+        font-size: 1rem;
+      }
+
+      .nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+    }
+
+  </style>
+</head>
+<body>
+
+<header>
+  <nav class="navbar">
+    <div class="logo">Tinto</div>
+
+    <ul class="nav-links">
+      <li><a href="#inicio">Inicio</a></li>
+      <li><a href="#nosotros">Nosotros</a></li>
+      <li><a href="#menu">Empanadas</a></li>
+      <li><a href="#contacto">Contacto</a></li>
+    </ul>
+  </nav>
+</header>
+
+<section class="hero" id="inicio">
+  <div class="hero-content">
+    <h1>Tinto</h1>
+    <p>
+      Sabor argentino en cada bocado. Empanadas artesanales preparadas con ingredientes selectos,
+      recetas auténticas y un toque gourmet.
+    </p>
+
+    <a href="#menu" class="btn">Ver Menú</a>
+  </div>
+</section>
+
+<section id="nosotros">
+
+  <div class="section-title">
+    <h2>Sobre Nosotros</h2>
+    <p>
+      En Tinto buscamos transmitir la esencia de Argentina a través de sabores auténticos,
+      recetas tradicionales y una experiencia cálida y elegante.
+    </p>
+  </div>
+
+  <div class="about">
+
+    <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?q=80&w=1974&auto=format&fit=crop" alt="Restaurante argentino">
+
+    <div class="about-text">
+      <h3>Tradición y sabor</h3>
+
+      <p>
+        Cada empanada es elaborada cuidadosamente para ofrecer una combinación perfecta
+        entre tradición argentina y creatividad gastronómica.
+      </p>
+
+      <p>
+        Nuestro objetivo es crear momentos memorables a través de sabores únicos,
+        ingredientes frescos y una experiencia moderna y acogedora.
+      </p>
+    </div>
+
+  </div>
+
+</section>
+
+<section id="menu">
+
+  <div class="section-title">
+    <h2>Nuestras Empanadas</h2>
+    <p>
+      Descubre nuestra variedad de sabores artesanales inspirados en recetas tradicionales
+      y combinaciones gourmet.
+    </p>
+  </div>
+
+  <div class="menu-grid">
+
+    <div class="menu-card">
+      <h3>Carne molida</h3>
+      <p>Empanada tradicional preparada con carne molida sazonada con especias selectas, cebolla y un toque casero que resalta su sabor auténtico y jugoso.</p>
+    </div>
+
+    <div class="menu-card">
+      <h3>Elote con queso</h3>
+      <p>Una combinación cremosa de granos de elote dulce y queso fundido, logrando un equilibrio perfecto entre suavidad y sabor.</p>
+    </div>
+
+    <div class="menu-card">
+      <h3>Caprese</h3>
+      <p>Inspirada en la clásica receta italiana, mezcla jitomate fresco, queso mozzarella y albahaca aromática para una experiencia ligera y deliciosa.</p>
+    </div>
+
+    <div class="menu-card">
+      <h3>Panceta y Cheddar</h3>
+      <p>Crujiente panceta ahumada acompañada de queso cheddar derretido, creando una empanada intensa y llena de carácter.</p>
+    </div>
+
+    <div class="menu-card">
+      <h3>Porteñita</h3>
+      <p>Receta con esencia argentina que combina sabores tradicionales y especias cuidadosamente seleccionadas para un toque auténtico y único. Con la combinación del peperoni, salda de tomate, queso y aceitunas crea un sabor único y delicioso.</p>
+    </div>
+
+    <div class="menu-card">
+      <h3>Mole con queso</h3>
+      <p>Deliciosa fusión mexicana de mole artesanal, ofreciendo un sabor equilibrado entre lo dulce y lo especiado.</p>
+    </div>
+
+    <div class="menu-card">
+      <h3>Hawaiana</h3>
+      <p>Una mezcla irresistible de jamón, tocino, queso y piña, que aporta un contraste perfecto entre lo salado y lo dulce.</p>
+    </div>
+
+    <div class="menu-card">
+      <h3>Jamón y morrón</h3>
+      <p>Jamón de gran sabor acompañado de morrón fresco y ligeramente asado, logrando una combinación suave y aromática.</p>
+    </div>
+
+    <div class="menu-card">
+      <h3>Papa, tocino y cebolla caramelizada</h3>
+      <p>Relleno cremoso de papa sazonada con tocino crujiente y cebolla caramelizada, ideal para quienes buscan un sabor reconfortante y gourmet.</p>
+    </div>
+
+    <div class="menu-card">
+      <h3>Jamón y queso</h3>
+      <p>La clásica favorita: jamón de calidad y queso fundido envueltos en una masa dorada y crujiente.</p>
+    </div>
+
+    <div class="menu-card">
+      <h3>Pascualina</h3>
+      <p>Tradicional receta argentina elaborada con espinaca, queso y un delicado toque casero que resalta su sabor auténtico.</p>
+    </div>
+
+    <div class="menu-card">
+      <h3>Cebolla y queso</h3>
+      <p>Cebolla suavemente caramelizada combinada con queso derretido para una empanada sencilla, cremosa y llena de sabor.</p>
+    </div>
+
+  </div>
+
+</section>
+
+<section id="contacto">
+
+  <div class="contact">
+
+    <h2>Contacto</h2>
+
+    <p>
+      Vive la experiencia Tinto y disfruta del auténtico sabor argentino.
+    </p>
+
+    <p>
+      Horarios: Lunes a Domingo | 1:00 PM - 10:00 PM
+    </p>
+
+    <div class="socials">
+
+      <a href="https://wa.me/5210000000000" target="_blank">
+        WhatsApp
+      </a>
+
+      <a href="https://instagram.com" target="_blank">
+        Instagram
+      </a>
+
+    </div>
+
+  </div>
+
+</section>
+
+<footer>
+  © 2026 Tinto — Sabor Argentino. Todos los derechos reservados.
+</footer>
+
+<a href="https://wa.me/5210000000000" class="whatsapp-float" target="_blank">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+</a>
+
+</body>
+</html>
+```
